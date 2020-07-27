@@ -30,74 +30,76 @@ class App extends StatelessWidget {
       ),
       //home:HomePage(title: "Turing Complete Academy")
       debugShowCheckedModeBanner: false,
-     
-      home:Header(title: "TLA"),
+
+      home: HomePage(),
     );
   }
 }
 
-class Header extends AppBar {
+class HomePage extends StatelessWidget {
   // @override
-  // final String title;
   // Header({Key key, this.title}) : super(key: key);
 
   // @override
-  // _HeaderState createState() => new _HeaderState();
-
-  return new AppBar(
-        //the widget refers to the HomePage class
-        title: Align(
-          alignment: Alignment.center, // Align however you like (i.e .centerRight, centerLeft)
-          child: Text(widget.title, style: TextStyle(fontStyle: FontStyle.italic)),
-        ),
-        actions: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(5.0),
-            child:
-                ElevatedButton(onPressed: null, child: const Text("About Us")),
+  String dropDownValue = "Green";
+  MyStatefulWidget widget;
+  Widget build(BuildContext context) {
+    return Container(
+     // decoration: BoxDecoration(
+          //image: DecorationImage(
+              //image: AssetImage("download.jpg"), fit: BoxFit.cover)),
+      child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            title: Text("TLA", style: TextStyle(fontStyle: FontStyle.italic)),
+            backgroundColor: Colors.blueGrey,
+            actions: <Widget>[
+              Padding(
+                  padding: EdgeInsets.only(right: 20.0),
+                  child:MyStatefulWidget()
+              )
+            ],
           ),
-          Padding(
-              padding: EdgeInsets.all(5.0),
-              child: ElevatedButton(
-                  onPressed: null, child: const Text("Contact Information"))),
-          Padding(
-              padding: EdgeInsets.only(left: 500.0),
-              child: GestureDetector(
-                onTap: () {},
-                child: Icon(
-                  Icons.search,
-                  size: 26.0,
-                ),
-              )),
-          Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                onTap: () {},
-                child: Icon(Icons.more_vert),
-              )),
-        ],
-      ),
+          //body: Center(child: my)
+          ),
+    );
+  }
 }
 
-
-
-class HomePage extends StatefulWidget {
-  final String title;
-  HomePage({Key key, this.title}) : super(key: key);
-
- 
+class MyStatefulWidget extends StatefulWidget {
+  MyStatefulWidget({Key key}) : super(key: key);
 
   @override
-  _HomePageState createState() => new _HomePageState();
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  String dropdownValue = 'One';
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new Header(title: "TLA"),
-     
+    return DropdownButton<String>(
+      value: dropdownValue,
+      icon: Icon(Icons.arrow_downward),
+      iconSize: 24,
+      elevation: 16,
+      style: TextStyle(color: Colors.deepPurple),
+      underline: Container(
+        height: 2,
+        color: Colors.deepPurpleAccent,
       ),
+      onChanged: (String newValue) {
+        setState(() {
+          dropdownValue = newValue;
+        });
+      },
+      items: <String>['One', 'Two', 'Free', 'Four']
+          .map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
     );
   }
 }

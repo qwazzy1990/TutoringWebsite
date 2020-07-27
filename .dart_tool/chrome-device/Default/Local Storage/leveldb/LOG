@@ -1,1 +1,9 @@
-2020/07/26-21:36:15.782 3288 Reusing MANIFEST C:\Users\disal\AppData\Local\Temp\flutter_tools.3724da65\flutter_tools_chrome_device.e1a23863\Default\Local Storage\leveldb/MANIFEST-000001
+2020/07/27-14:06:28.640 3574 Reusing MANIFEST C:\Users\disal\AppData\Local\Temp\flutter_tools.ea462251\flutter_tools_chrome_device.cf1621c7\Default\Local Storage\leveldb/MANIFEST-000001
+2020/07/27-14:06:28.640 3574 Recovering log #3
+2020/07/27-14:06:28.641 3574 Reusing old log C:\Users\disal\AppData\Local\Temp\flutter_tools.ea462251\flutter_tools_chrome_device.cf1621c7\Default\Local Storage\leveldb/000003.log 
+2020/07/27-14:19:48.322 29f0 Level-0 table #5: started
+2020/07/27-14:19:48.325 29f0 Level-0 table #5: 19826 bytes OK
+2020/07/27-14:19:48.327 29f0 Delete type=0 #3
+2020/07/27-16:43:56.326 29f0 Level-0 table #7: started
+2020/07/27-16:43:56.328 29f0 Level-0 table #7: 15656 bytes OK
+2020/07/27-16:43:56.331 29f0 Delete type=0 #4
