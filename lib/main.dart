@@ -28,40 +28,42 @@ class App extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(title: "Hello World"),
+      //home:HomePage(title: "Turing Complete Academy")
+      debugShowCheckedModeBanner: false,
+     
+      home:Header(title: "TLA"),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
-  final String title;
-  HomePage({Key key, this.title}) : super(key: key);
+class Header extends AppBar {
+  // @override
+  // final String title;
+  // Header({Key key, this.title}) : super(key: key);
 
-  void printTitle()
-  {
-    print(this.title);
-  }
-  @override
-  _HomePageState createState() => new _HomePageState();
+  // @override
+  // _HeaderState createState() => new _HeaderState();
 
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
+  return new AppBar(
         //the widget refers to the HomePage class
-        title: Align(alignment: Alignment.center, // Align however you like (i.e .centerRight, centerLeft)
-          child: Text(widget.title),
+        title: Align(
+          alignment: Alignment.center, // Align however you like (i.e .centerRight, centerLeft)
+          child: Text(widget.title, style: TextStyle(fontStyle: FontStyle.italic)),
         ),
         actions: <Widget>[
           Padding(
+            padding: EdgeInsets.all(5.0),
+            child:
+                ElevatedButton(onPressed: null, child: const Text("About Us")),
+          ),
+          Padding(
+              padding: EdgeInsets.all(5.0),
+              child: ElevatedButton(
+                  onPressed: null, child: const Text("Contact Information"))),
+          Padding(
               padding: EdgeInsets.only(left: 500.0),
               child: GestureDetector(
-                onTap: () {
-                  widget.printTitle();
-                },
+                onTap: () {},
                 child: Icon(
                   Icons.search,
                   size: 26.0,
@@ -74,6 +76,27 @@ class _HomePageState extends State<HomePage> {
                 child: Icon(Icons.more_vert),
               )),
         ],
+      ),
+}
+
+
+
+class HomePage extends StatefulWidget {
+  final String title;
+  HomePage({Key key, this.title}) : super(key: key);
+
+ 
+
+  @override
+  _HomePageState createState() => new _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new Header(title: "TLA"),
+     
       ),
     );
   }
